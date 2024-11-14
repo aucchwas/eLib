@@ -21,10 +21,17 @@ end
 
 # Create Books
 100.times do
-  Book.find_or_create_by(
+  book = Book.find_or_create_by(
     title: Faker::Book.title,
     author: Faker::Book.author,
     price: Faker::Commerce.price,
     publisher: Faker::Book.publisher,
   )
+
+  # Assign random genres to each book
+  book.genres << Genre.order("RANDOM()").limit(1)
 end
+
+puts "Created #{Genre.count} genres"
+puts "Created #{Book.count} books"
+puts "Created #{BookGenre.count} book genres"
