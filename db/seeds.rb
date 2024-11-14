@@ -7,7 +7,12 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-use "faker"
+require "faker"
+
+# Clear all data
+BookGenre.destroy_all
+Book.destroy_all
+Genre.destroy_all
 
 # Create Genres
 10.times do
