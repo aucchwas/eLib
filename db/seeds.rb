@@ -15,7 +15,7 @@ Book.destroy_all
 Genre.destroy_all
 
 # Create Genres
-10.times do
+11.times do
   Genre.find_or_create_by(name: Faker::Book.genre)
 end
 
