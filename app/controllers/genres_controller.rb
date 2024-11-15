@@ -6,6 +6,7 @@ class GenresController < ApplicationController
   end
 
   def show
+    @books = @genre.books
   end
 
   def new
