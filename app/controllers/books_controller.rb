@@ -37,6 +37,15 @@ class BooksController < ApplicationController
     redirect_to books_url, notice: "Book was successfully destroyed."
   end
 
+  def new_books
+    @books = Book.where("created_at >= ?", 3.days.ago.utc)
+    Rails.logger.debug "Number of books created in the last 3 days: #{@books.count}"
+  end
+
+  def updated_books
+    @books = Book.where("updated_at >= ?", 3.days.ago.utc)
+  end
+
   private
 
   def set_book
@@ -44,6 +53,6 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title, :author, :price, :publication_year)
+    params.require(:book).permit(:title, :author, :price, :publisher)
   end
 end
