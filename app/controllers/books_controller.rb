@@ -3,7 +3,7 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
-    @books = Book.order(:title).page(params[:page]).per(10)
+    @books = Book.order(:title).page(params[:page]).per(15)
   end
 
   def show
@@ -41,10 +41,12 @@ class BooksController < ApplicationController
   def new_books
     @books = Book.where("created_at >= ?", 3.days.ago.utc)
     Rails.logger.debug "Number of books created in the last 3 days: #{@books.count}"
+    @books = Book.order(:title).page(params[:page]).per(15)
   end
 
   def updated_books
     @books = Book.where("updated_at >= ?", 3.days.ago.utc)
+    @books = Book.order(:title).page(params[:page]).per(15)
   end
 
   private
