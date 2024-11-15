@@ -10,27 +10,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+ <div class="form-floating mb-3">
+    <%= form.text_field :title, class: "form-control", id: "floatingTitle", placeholder: "Title" %>
+    <%= form.label :title, "Title", for: "floatingTitle" %>
   </div>
 
-  <div class="field">
-    <%= form.label :author %>
-    <%= form.text_field :author %>
+  <div class="form-floating mb-3">
+    <%= form.text_field :author, class: "form-control", id: "floatingAuthor", placeholder: "Author" %>
+    <%= form.label :author, "Author", for: "floatingAuthor" %>
   </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
+  <div class="form-floating mb-3">
+    <%= form.text_field :price, class: "form-control", id: "floatingPrice", placeholder: "Price" %>
+    <%= form.label :price, "Price", for: "floatingPrice" %>
   </div>
 
-  <div class="field">
-    <%= form.label :publisher %>
-    <%= form.text_field :publisher %>
+  <div class="form-floating mb-3">
+    <%= form.text_field :publisher, class: "form-control", id: "floatingPublisher", placeholder: "Publisher" %>
+    <%= form.label :publisher, "Publisher", for: "floatingPublisher" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Save", class: "btn btn-primary" %>
   </div>
+  
 <% end %>

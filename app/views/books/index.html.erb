@@ -1,6 +1,5 @@
 <h1>Avilable Books</h1>
 <%= link_to 'New Book', new_book_path, class: "btn btn-secondary" %>
-
 <table class="table table-striped">
   <thead>
     <tr>
@@ -20,7 +19,7 @@
         <td><%= book.publisher %></td>
         <td><%= link_to 'Show', book, class: "btn btn-secondary" %></td>
         <td><%= link_to 'Edit', edit_book_path(book), class: "btn btn-secondary" %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-secondary" %></td>
+        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-close" %></td>
       </tr>
     <% end %>
   </tbody>
