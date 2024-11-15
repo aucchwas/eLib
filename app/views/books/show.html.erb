@@ -1,15 +1,12 @@
-<h1><%= @book.title %></h1>
-<p>
-  <strong>Author:</strong>
-  <%= @book.author %>
-</p>
-<p>
-  <strong>Price:</strong>
-  <%= @book.price %>
-</p>
-<p>
-  <strong>Publication Year:</strong>
-  <%= @book.publisher %>
-</p>
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+
+<div class="jumbotron">
+  <h1 class="display-4">Title: <%= @book.title %></h1>
+  <p class="lead">Author: <%= @book.author %></p>
+  <hr class="my-4">
+  <p>
+    Price: <%= @book.price %><br/>
+    Publisher: <%= @book.publisher %>
+  </p>
+</div>
+<%= link_to 'Edit', edit_book_path(@book), class: "btn btn-secondary" %> |
+<%= link_to 'Back', books_path, class: "btn btn-secondary" %>
