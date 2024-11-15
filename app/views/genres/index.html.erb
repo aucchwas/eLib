@@ -1,6 +1,6 @@
 <h1>Genres</h1>
 <%= link_to 'New Genre', new_genre_path %>
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -11,9 +11,9 @@
     <% @genres.each do |genre| %>
       <tr>
         <td><%= genre.name %></td>
-        <td><%= link_to 'Show', genre %></td>
-        <td><%= link_to 'Edit', edit_genre_path(genre) %></td>
-        <td><%= link_to 'Destroy', genre, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', genre, class: "btn btn-secondary" %></td>
+        <td><%= link_to 'Edit', edit_genre_path(genre), class: "btn btn-secondary" %></td>
+        <td><%= link_to 'Destroy', genre, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-secondary" %></td>
       </tr>
     <% end %>
   </tbody>
