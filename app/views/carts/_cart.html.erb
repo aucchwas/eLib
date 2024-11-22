@@ -1,0 +1,16 @@
+<div id="cart">
+  <h2>Your Cart</h2>
+  <ul>
+    <% cart.each do |book_id, quantity| %>
+      <% book = Book.find(book_id) %>
+      <li>
+        <%= book.title %> - Quantity: 
+        <%= form_with url: update_quantity_book_path(book), method: :patch, local: true do |form| %>
+          <%= form.number_field :quantity, value: quantity, min: 1, class: "form-control d-inline w-auto" %>
+          <%= form.submit "Update", class: "btn btn-primary" %>
+        <% end %>
+        <%= link_to 'Remove', remove_from_cart_book_path(book), method: :delete, data: { turbo_frame: "_top", confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+      </li>
+    <% end %>
+  </ul>
+</div>

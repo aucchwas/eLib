@@ -10,12 +10,19 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   resources :books do
+    member do
+      post "add_to_cart"
+      patch "update_quantity"
+      delete "remove_from_cart"
+    end
     collection do
       get "new_books"
       get "updated_books"
     end
   end
   resources :genres
+
+  get "cart", to: "carts#show", as: "cart"
 
   # Render dynamic PWA files from app/views/pwa/*
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker

@@ -24,6 +24,7 @@
     
     <div class="container">
       <%= yield %>
+      <%= render partial: "carts/cart", locals: { cart: current_cart } %>
     </div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
