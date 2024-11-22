@@ -18,8 +18,12 @@
         <td><%= book.price %></td>
         <td><%= book.publisher %></td>
         <td><%= link_to 'Show', book, class: "btn btn-secondary" %></td>
-        <td><%= link_to 'Edit', edit_book_path(book), class: "btn btn-secondary" %></td>
-        <td><%= link_to '', book, data: { turbo_method: "delete" }, data: { confirm: 'Are you sure?' }, class: "btn btn-close" %></td>
+        
+        <% if user_signed_in? %>
+          <td><%= link_to 'Edit', edit_book_path(book), class: "btn btn-secondary" %></td>
+          <td><%= link_to '', book, data: { turbo_method: "delete" }, data: { confirm: 'Are you sure?' }, class: "btn btn-close" %></td>
+        <% end %>
+        
       </tr>
     <% end %>
   </tbody>

@@ -12,8 +12,10 @@
       <tr>
         <td><%= genre.name %></td>
         <td><%= link_to 'Show', genre, class: "btn btn-secondary" %></td>
-        <td><%= link_to 'Edit', edit_genre_path(genre), class: "btn btn-secondary" %></td>
-        <td><%= link_to '', genre, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-close" %></td>
+        <% if user_signed_in? %>
+          <td><%= link_to 'Edit', edit_genre_path(genre), class: "btn btn-secondary" %></td>
+          <td><%= link_to '', genre, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-close" %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
