@@ -18,10 +18,11 @@
         <td><%= book.price %></td>
         <td><%= book.publisher %></td>
         <td><%= link_to 'Show', book, class: "btn btn-secondary" %></td>
-        <td>
-          <%= button_to 'Add to Cart', add_to_cart_book_path(book), method: :post, form: { data: { turbo_frame: "_top" } }, class: "btn btn-primary" %>
-        </td>
+        
         <% if user_signed_in? %>
+          <td>
+            <%= button_to 'Add to Cart', add_to_cart_book_path(book), method: :post, form: { data: { turbo_frame: "_top" } }, class: "btn btn-primary" %>
+          </td>
           <td><%= link_to 'Edit', edit_book_path(book), class: "btn btn-secondary" %></td>
           <td><%= link_to '', book, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-close" %></td>
         <% end %>

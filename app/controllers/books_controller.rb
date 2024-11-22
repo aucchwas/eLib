@@ -1,6 +1,4 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: %i[show edit update destroy]
-
   before_action :set_book, only: %i[show edit update destroy add_to_cart update_quantity remove_from_cart]
 
   def index
@@ -74,7 +72,11 @@ class BooksController < ApplicationController
       cart.delete(book_id)
     end
     session[:cart] = cart
-    redirect_to cart_path, notice: "Cart updated."
+
+    respond_to do |format|
+      format.html { redirect_to cart_path, notice: "Cart updated." }
+      format.turbo_stream
+    end
   end
 
   def remove_from_cart
@@ -82,7 +84,11 @@ class BooksController < ApplicationController
     book_id = params[:id].to_s
     cart.delete(book_id)
     session[:cart] = cart
-    redirect_to cart_path, notice: "Book removed from cart."
+
+    respond_to do |format|
+      format.html { redirect_to cart_path, notice: "Book removed from cart." }
+      format.turbo_stream
+    end
   end
 
   private

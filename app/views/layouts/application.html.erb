@@ -24,7 +24,9 @@
     
     <div class="container">
       <%= yield %>
-      <%= render partial: "carts/cart", locals: { cart: current_cart } %>
+      <% if user_signed_in? %>
+        <%= render partial: "carts/cart", locals: { cart: current_cart } %>
+      <% end %>
     </div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
